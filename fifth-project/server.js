@@ -1,7 +1,8 @@
 import express from "express";
 import middleware from "./middlewares/auth.js";
-
+import cors from "cors";
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 

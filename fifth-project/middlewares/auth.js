@@ -13,7 +13,7 @@ const middleware = (req, res, next) => {
     req.user = userID;
     next();
   } else {
-    res.send("UnAuthorized User");
+    res.json({ message: "UnAuthorized User" });
   }
 };
 
