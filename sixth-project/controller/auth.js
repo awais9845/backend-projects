@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 
 const users = [
   {
+    id: 1,
     name: "awais khan",
     email: "waqarkhattak844@gmail.com",
     password: await bcrypt.hash("test12", 10),
@@ -45,7 +46,7 @@ export const signUp = async (req, res) => {
 };
 
 export const logIn = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, id } = req.body;
   const findUser = users.find((user) => user.email === email);
 
   if (!findUser) {
@@ -63,8 +64,8 @@ export const logIn = async (req, res) => {
     });
   }
 
-  const token = jwt.sign(findUser, "sldjf", {
-    expiresIn: "1s",
+  const token = jwt.sign(findUser, "asdf", {
+    expiresIn: "15m",
   });
   // console.log(token);
 
